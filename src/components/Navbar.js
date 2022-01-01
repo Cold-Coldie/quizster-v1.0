@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const Navbar = ({ toggle }) => {
   return (
     <>
-      <div className="shadow-md flex justify-center md:justify-start fixed top-0 w-screen bg-white z-10">
+      <div className="shadow-md flex justify-center md:justify-start py-2 fixed top-0 w-screen bg-white z-10">
         <Link to="/" className="px-6 pb-3">
-          <span className="text-7xl text-purple-800 font-poppins">Quiz</span>
-          <span className="text-7xl text-pink-600 font-dancingScript">
+          <span className="text-4xl text-purple-800 font-poppins">Quiz</span>
+          <span className="text-4xl text-pink-600 font-dancingScript">
             ster
           </span>
         </Link>
@@ -57,7 +57,7 @@ const Navbar = ({ toggle }) => {
         </div>
 
         <div
-          className="flex absolute right-5 top-7 items-center text-purple-800 lg:hidden cursor-pointer hover:text-pink-600 focus-within:text-pink-600"
+          className="flex absolute right-5 top-5 items-center text-purple-800 lg:hidden cursor-pointer hover:text-pink-600 focus-within:text-pink-600"
           onClick={toggle}
         >
           <svg
