@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Usefetch from "../hooks/UseFetch";
 import Loading from "../images/loadinggg.png";
+import { ScoreContext } from "../hooks/ScoreContext";
 
 const Questions = () => {
   const { category, difficulty } = useParams();
@@ -12,19 +13,18 @@ const Questions = () => {
 
   const [checked, setChecked] = useState("");
 
-  const [one, setOne] = useState(0);
-  const [two, setTwo] = useState(0);
-  const [three, setThree] = useState(0);
-  const [four, setFour] = useState(0);
-  const [five, setFive] = useState(0);
-  const [six, setSix] = useState(0);
-  const [seven, setSeven] = useState(0);
-  const [eight, setEight] = useState(0);
-  const [nine, setNine] = useState(0);
-  const [ten, setTen] = useState(0);
-
-  var sum = 0;
-  sum = one + two + three + four + five + six + seven + eight + nine + ten;
+  const {
+    setOne,
+    setTwo,
+    setThree,
+    setFour,
+    setFive,
+    setSix,
+    setSeven,
+    setEight,
+    setNine,
+    setTen,
+  } = useContext(ScoreContext);
 
   return (
     <div className="mt-20">
@@ -690,7 +690,7 @@ const Questions = () => {
 
           <div className="hidden">{checked}</div>
 
-          <Link to={`/score/${sum}`}>
+          <Link to={`/score`}>
             <div className="bg-purple-800 text-white w-min m-10 p-2 rounded-md mr-auto cursor-pointer">
               SUBMIT
             </div>

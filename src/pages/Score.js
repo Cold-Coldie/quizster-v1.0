@@ -1,7 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ScoreContext } from "../hooks/ScoreContext";
 
 const Score = () => {
-  const { sum } = useParams();
+  const { sum } = useContext(ScoreContext);
 
   return (
     <div>

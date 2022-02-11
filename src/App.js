@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 import "./App.css";
 import Dropdown from "./components/Dropdown";
 import Navbar from "./components/Navbar";
+import ScoreContextProvider from "./hooks/ScoreContext";
 import AboutUs from "./pages/AboutUs";
 import ComputerScience from "./pages/ComputerScience";
 import GeneralKnowledge from "./pages/GeneralKnowledge";
@@ -35,21 +36,23 @@ function App() {
 
   return (
     <>
-      <Navbar toggle={toggle} />
-      <Dropdown isOpen={isOpen} toggle={toggle} />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/mathematics" component={Mathematics} />
-        <Route path="/generalknowledge" component={GeneralKnowledge} />
-        <Route path="/computerscience" component={ComputerScience} />
-        <Route
-          path="/questions/:name/:category/:difficulty"
-          component={Questions}
-        />
-        <Route path="/score/:sum" component={Score} />
-        <Route path="/aboutUs" component={AboutUs} />
-        <Route path="/*" component={NotFound} />
-      </Switch>
+      <ScoreContextProvider>
+        <Navbar toggle={toggle} />
+        <Dropdown isOpen={isOpen} toggle={toggle} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/mathematics" component={Mathematics} />
+          <Route path="/generalknowledge" component={GeneralKnowledge} />
+          <Route path="/computerscience" component={ComputerScience} />
+          <Route
+            path="/questions/:name/:category/:difficulty"
+            component={Questions}
+          />
+          <Route path="/score" component={Score} />
+          <Route path="/aboutUs" component={AboutUs} />
+          <Route path="/*" component={NotFound} />
+        </Switch>
+      </ScoreContextProvider>
     </>
   );
 }
